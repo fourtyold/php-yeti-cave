@@ -8,7 +8,9 @@ $user_avatar = 'img/user.jpg';
 date_default_timezone_set('Europe/Moscow');
 
 // записать в эту переменную оставшееся время в этом формате (ЧЧ:ММ)
-$lot_time_remaining = "00:00";
+// $lot_time_remaining = "00:00";
+
+
 
 // временная метка для полночи следующего дня
 $tomorrow = strtotime('tomorrow midnight');
@@ -18,6 +20,12 @@ $now = strtotime('now');
 
 // далее нужно вычислить оставшееся время до начала следующих суток и записать его в переменную $lot_time_remaining
 // ...
+$hours = ($tomorrow - $now) / 3600;
+$minutes = floor(($hours - floor($hours)) * 60);
+if ($hours < 10) {
+    $hours = "0".floor($hours);
+}
+$lot_time_remaining = $hours.":".$minutes;
 ?>
 <!DOCTYPE html>
 <html lang="ru">
@@ -59,9 +67,6 @@ $now = strtotime('now');
                     </li>
                 </ul>
             <?php endif; ?>
-
-        <!-- здесь должен быть PHP код для показа аватара пользователя -->
-
         </nav>
     </div>
 </header>
