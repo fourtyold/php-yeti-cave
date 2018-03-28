@@ -1,8 +1,8 @@
 <?php 
     $title = $dataArray['title'];
-    $is_auth = (bool) rand(0, 1);
-    $user_name = $dataArray['user'];
-    $user_avatar = $dataArray['avatar'];
+    $isAuth = (bool) rand(0, 1);
+    $userName = $dataArray['user'];
+    $userAvatar = $dataArray['avatar'];
     $main = $dataArray['main'];
 ?>
 
@@ -29,12 +29,12 @@
         <a class="main-header__add-lot button" href="add-lot.html">Добавить лот</a>
 
         <nav class="user-menu">
-            <?php if ($is_auth) : ?>
+            <?php if ($isAuth) : ?>
                 <div class="user-menu__image">
-                    <img src="<?php print($user_avatar) ?>" width="40" height="40" alt="Пользователь">
+                    <img src="<?php print($userAvatar) ?>" width="40" height="40" alt="Пользователь">
                 </div>
                 <div class="user-menu__logged">
-                    <p><?php print($user_name) ?></p>
+                    <p><?php print($userName) ?></p>
                 </div>
             <?php else: ?>
                 <ul class="user-menu__list">

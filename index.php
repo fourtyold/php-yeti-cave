@@ -1,8 +1,8 @@
 <?php
 require('functions.php');
 
-$user_name = 'Константин';
-$user_avatar = 'img/user.jpg';
+$userName = 'Константин';
+$userAvatar = 'img/user.jpg';
 
 $categories = ['Доски и лыжи', 'Крепления', 'Ботинки', 'Одежда', 'Инструменты', 'Разное'];
 
@@ -65,21 +65,21 @@ $minutes = floor(($hours - floor($hours)) * 60);
 if ($hours < 10) {
     $hours = "0".floor($hours);
 }
-$lot_time_remaining = $hours.":".$minutes;
+$lotTimeRemaining = $hours.":".$minutes;
 
 // шаблонизация 
 $indexData = [
     'lot' => $goods,
     'categorie' => $categories,
-    'time' => $lot_time_remaining
+    'time' => $lotTimeRemaining
 ];
 
 $indexContent = renderTemplate('templates/index.php', $indexData);
 
 $layoutData = [
     'title' => 'Главная',
-    'user' => $user_name,
-    'avatar' => $user_avatar,
+    'user' => $userName,
+    'avatar' => $userAvatar,
     'main' => $indexContent
 ];
 

@@ -1,7 +1,7 @@
 <?php 
     $categories = $dataArray['categorie'];
     $goods = $dataArray['lot'];
-    $lot_time_remaining = $dataArray['time'];
+    $lotTimeRemaining = $dataArray['time'];
 ?>
 
 <section class="promo">
@@ -52,7 +52,7 @@
                             <span class="lot__cost"><?=$value['price'] ?><b class="rub">р</b></span>
                         </div>
                         <div class="lot__timer timer">
-                            <?=$lot_time_remaining;?>
+                            <?=$lotTimeRemaining;?>
                         </div>
                     </div>
                 </div>
