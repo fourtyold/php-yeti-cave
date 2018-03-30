@@ -1,6 +1,6 @@
 <?php
 
-require('templates/lot-data.php');
+require('lot-data.php');
 require('data.php');
 
 // ставки пользователей, которыми надо заполнить таблицу
