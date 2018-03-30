@@ -1,7 +1,7 @@
 <?php
 require('functions.php');
 require('data.php');
-require('templates/lot-data.php');
+require('lot-data.php');
 
 // шаблонизация 
 $indexData = [
