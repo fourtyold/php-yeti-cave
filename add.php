@@ -1,4 +1,11 @@
 <?php 
+	session_start();
+	
+	if (!isset($_SESSION['user'])) {
+		http_response_code(403);
+		exit();
+	}
+
 	require('functions.php');
 	require('data.php');
 
@@ -46,7 +53,6 @@
 
 	$layoutData = [
     'title' => 'Добавление лота',
-    'user' => $userName,
     'avatar' => $userAvatar,
     'main' => $main
 	];

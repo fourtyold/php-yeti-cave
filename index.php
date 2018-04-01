@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 require('functions.php');
 require('data.php');
 require('lot-data.php');
@@ -14,7 +16,6 @@ $indexContent = renderTemplate('templates/index.php', $indexData);
 
 $layoutData = [
     'title' => 'Главная',
-    'user' => $userName,
     'avatar' => $userAvatar,
     'main' => $indexContent
 ];

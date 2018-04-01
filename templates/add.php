@@ -45,7 +45,7 @@
       <?php endif; ?>
         <label for="lot-name">Наименование</label>
         <input id="lot-name" type="text" name="lot-name" placeholder="Введите наименование лота" value="<?=$lotName;?>" required>
-        <span class="form__error"><?php if(in_array('lot-name', $fieldsInvalid)) : ?>Обязательное поле<?php endif; ?></span>
+        <span class="form__error">Обязательное поле</span>
       </div>
       <?php if(in_array('category', $fieldsInvalid)) : ?>
       <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
@@ -62,7 +62,7 @@
           <option>Инструменты</option>
           <option>Разное</option>
         </select>
-        <span class="form__error"><?php if(in_array('category', $fieldsInvalid)) : ?>Укажите категорию товара<?php endif; ?></span>
+        <span class="form__error">Укажите категорию товара</span>
       </div>
     </div>
     <?php if(in_array('message', $fieldsInvalid)) : ?>
@@ -72,7 +72,7 @@
     <?php endif; ?>
       <label for="message">Описание</label>
       <textarea id="message" name="message" placeholder="Напишите описание лота" required><?=$message; ?></textarea>
-      <span class="form__error"><?php if(in_array('message', $fieldsInvalid)) : ?>Обязательное поле<?php endif; ?></span>
+      <span class="form__error">Обязательное поле</span>
     </div>
     <div class="form__item form__item--file"> <!-- form__item--uploaded -->
       <label>Изображение</label>
@@ -97,7 +97,7 @@
       <?php endif; ?>
         <label for="lot-rate">Начальная цена</label>
         <input id="lot-rate" type="number" name="lot-rate" placeholder="0" value="<?=$lotRate; ?>" required>
-        <span class="form__error"><?php if(in_array('lot-rate', $fieldsInvalid)) : ?>Обязательное поле<br>(только цифры)<?php endif; ?></span>
+        <span class="form__error">Обязательное поле<br>(только цифры)</span>
       </div>
       <?php if(in_array('lot-step', $fieldsInvalid)) : ?>
       <div class="form__item form__item--small form__item--invalid">
@@ -106,7 +106,7 @@
       <?php endif; ?>
         <label for="lot-step">Шаг ставки</label>
         <input id="lot-step" type="number" name="lot-step" placeholder="0" value="<?=$lotStep; ?>" required>
-        <span class="form__error"><?php if(in_array('lot-step', $fieldsInvalid)) : ?>Обязательное поле<br>(только цифры)<?php endif; ?></span>
+        <span class="form__error">Обязательное поле<br>(только цифры)</span>
       </div>
       <?php if(in_array('lot-date', $fieldsInvalid)) : ?>
       <div class="form__item form__item--invalid"> <!-- form__item--invalid -->
@@ -115,7 +115,7 @@
       <?php endif; ?>
         <label for="lot-date">Дата завершения</label>
         <input class="form__input-date" id="lot-date" type="text" name="lot-date" placeholder="20.05.2017" value="<?=$lotDate; ?>" required>
-        <span class="form__error"><?php if(in_array('lot-date', $fieldsInvalid)) : ?>Обязательное поле<?php endif; ?></span>
+        <span class="form__error">Обязательное поле</span>
       </div>
     </div>
     <span class="form__error form__error--bottom">Пожалуйста, исправьте ошибки в форме.</span>
@@ -147,14 +147,14 @@
         </ul>
     </nav>
     <section class="lot-item container">
-        <h2><?=$_POST['lot-name'] ?></h2>
+        <h2><?=htmlspecialchars($_POST['lot-name']) ?></h2>
         <div class="lot-item__content">
             <div class="lot-item__left">
                 <div class="lot-item__image">
                     <img src="img/<?=$_FILES['lot-picture']['name']?>" width="730" height="548" alt="Сноуборд">
                 </div>
                 <p class="lot-item__category">Категория: <span><?=$_POST['category'] ?></span></p>
-                <p class="lot-item__description"><?=$_POST['message'] ?></p>
+                <p class="lot-item__description"><?=htmlspecialchars($_POST['message']) ?></p>
             </div>
             <div class="lot-item__right">
                 <div class="lot-item__state">
