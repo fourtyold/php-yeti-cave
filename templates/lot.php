@@ -3,6 +3,7 @@
     $lotNumber = $dataArray['lot-number'];
     $lotTimeRemaining = $dataArray['time-remaining'];
     $bets = $dataArray['bets'];
+    $hideBetForm = $dataArray['bet-form'];
 ?>
 
 <nav class="nav">
@@ -47,7 +48,7 @@
                     равнодушным.</p>
             </div>
             <div class="lot-item__right">
-                <?php if (isset($_SESSION['user'])) : ?>
+                <?php if (isset($_SESSION['user']) && !$hideBetForm) : ?>
                 <div class="lot-item__state">
                     <div class="lot-item__timer timer">
                         <?=$lotTimeRemaining ?>
@@ -61,11 +62,12 @@
                             Мин. ставка <span><?=$goods[$lotNumber]['price'] ?></span>
                         </div>
                     </div>
-                    <form class="lot-item__form" action="https://echo.htmlacademy.ru" method="post">
+                    <form class="lot-item__form" action="mylots.php" method="post">
                         <p class="lot-item__form-item">
                             <label for="cost">Ваша ставка</label>
                             <input id="cost" type="number" name="cost" placeholder="12 000">
                         </p>
+                        <input type='hidden' name='lot-number' value='<?=$lotNumber ?>'>
                         <button type="submit" class="button">Сделать ставку</button>
                     </form>
                 </div>
