@@ -5,6 +5,8 @@ require('functions.php');
 require('lot-data.php');
 require('data.php');
 
+$hideBetForm = false;
+$name = 'mylots';
 // ставки пользователей, которыми надо заполнить таблицу
 $bets = [
     ['name' => 'Иван', 'price' => 11500, 'ts' => strtotime('-' . rand(1, 50) .' minute')],
@@ -24,12 +26,22 @@ foreach ($bets as $key => $val) {
     $bets[$key]['timeleft'] = getBetTime($val['ts']);
 }
 
+if (isset($_COOKIE[$name])) {
+    $mylotsData = json_decode($_COOKIE[$name], true);
+    foreach ($mylotsData as $key => $value) {
+        if ($value['lot-number'] == $lotNumber) {
+            $hideBetForm = true;
+            break;
+        }
+    }
+}
 
 $lotData = [
     'lots' => $goods,
     'lot-number' => $lotNumber,
     'time-remaining' => $lotTimeRemaining,
-    'bets' => $bets
+    'bets' => $bets,
+    'bet-form' => $hideBetForm
 ];
 
 $main = renderTemplate('templates/lot.php', $lotData);
