@@ -1,10 +1,11 @@
 <?php
 session_start();
 
-require('functions.php');
-require('data.php');
-require('lot-data.php');
-
+require_once('functions.php');
+require_once('data.php');
+require_once('lot-data.php');
+require_once('mysql_helper.php');
+require_once('init.php');
 // шаблонизация 
 $indexData = [
     'lot' => $goods,

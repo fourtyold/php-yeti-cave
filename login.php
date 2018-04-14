@@ -3,7 +3,9 @@
 	require('functions.php');
 	require('data.php');
 	require('userdata.php');
-
+	require('mysql_helper.php');
+	require('init.php');
+	
 	$email = $_POST['email'] ?? '';
 	$password = $_POST['password'] ?? '';
 
