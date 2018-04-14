@@ -8,6 +8,8 @@
 
 	require('functions.php');
 	require('data.php');
+	require('mysql_helper.php');
+	require('init.php');
 
 	$lotName = $_POST['lot-name'] ?? '';
 	$message = $_POST['message'] ?? '';
